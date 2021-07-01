@@ -58,8 +58,6 @@
         <th>description</th>
         <th>experience</th>
         <th>action</th>
-        
-
       </tr>
     </thead>
     <tbody class="text-center" >

@@ -36,19 +36,19 @@
   <form action="addjob.php" method="post">
     <div class="form-group">
       <label for="comapny name">company name</label>
-      <input type="text" class="form-control" id="company_name" placeholder="company name" name="company">
+      <input type="text" class="form-control" id="company_name" placeholder="company name" name="company" required>
     </div>
     <div class="form-group">
         <label for="salary">salary:</label>
-        <input type="text" class="form-control" id="salary" placeholder="salary" name="salary">
+        <input type="text" class="form-control" id="salary" placeholder="salary" name="salary"required>
       </div>
       <div class="form-group">
         <label for="description">description:</label>
-        <input type="text" class="form-control" id="description" placeholder="description" name="description">
+        <input type="text" class="form-control" id="description" placeholder="description" name="description" required>
       </div>
       <div class="form-group">
         <label for="experience">experience:</label>
-        <input type="text" class="form-control" id="experience" placeholder="experience" name="experience">
+        <input type="text" class="form-control" id="experience" placeholder="experience" name="experience" required>
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

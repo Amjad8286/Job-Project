@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Search Job</title>
+  <title>rehman's project</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -14,43 +14,25 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     crossorigin="anonymous"></script>
   <style>
-    /* Make the image fully responsive */
-    .carousel-inner img {
-      width: 100%;
-      height: 100%;
-    }
+    .container {
+      border: 0.5px solid;
+      border-radius: 20px;
 
-    #cardstyle {
-      border: 2px solid red;
-
+      position: center;
+      border: 1px solid #9ca99f;
+      border-radius: 6px;
+      padding: 24px 24px 0;
+      max-width: 920px;
+      margin-top: 3rem;
+      
     }
-
-    .jumbotron.text-center {
-      background-color: rgb(52 58 64);
-    }
-    .row {
-    --bs-gutter-x: -12.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(var(--bs-gutter-y) * -1);
-    margin-right: calc(var(--bs-gutter-x) * -.5);
-    margin-left: calc(var(--bs-gutter-x) * -.5);
-    align-content: stretch;
-    justify-content: center;
-    align-items: flex-start;
-    flex-direction: row;
-}
-.carousel-caption{
-  padding-bottom: 18.25rem;
-}
+    
   </style>
 </head>
 
-<body style="background-color:#c3e6cb">
+<body style="background-color: #c3e6cb;">
 
-
-  <nav class="navbar navbar-expand-lg navbar-light table-warning" id="mynavbar" style="position: -webkit-sticky;  top: 0;">
+  <nav class="navbar navbar-expand-lg navbar-light table-warning" id="mynavbar">
     <div class="collapse navbar-collapse" id="navb">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -150,108 +132,30 @@
       </div>
     </div>
   </nav>
- 
-  <!--slider-->
-  <div class="container my-3">
-    <div id="demo" class="carousel slide" data-ride="carousel">
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-      <div style="max-height: 470px; "class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/3.jpg" alt="Los Angeles" >
-          <div style="" class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
-            <h1>abdul rehman</h1>
-            <input type="text" id="fname" name="fname" value="John">
-
-          </div>
-
-        </div>
-        <div class="carousel-item">
-          <img src="img/1.jpg" alt="Chicago" >
-          <div class="carousel-caption">
-            <h3>Chicago</h3>
-            <p>Thank you, Chicago!</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="img/2.jpg" alt="New York">
-          <div class="carousel-caption">
-            <h3>New York</h3>
-            <p>We love the Big Apple!</p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-    </div>
-  </div>
-  <!--slider-->
-<hr>
-
-<h1 class="text-center"> <span class="badge bg-danger " style="color:white">Get Your Favorite Job From Here</span></h1> 
 
 
-  <!--card-->
- 
-  <div class="container-fluid table-success" style="margin-right: 86px;">
-  <?php
-  // Create connection
-    $conn = mysqli_connect("localhost", "root", "", "givejob");
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-    
-    $sql = " SELECT id,company,salary,des,experience FROM addjob";
-    $result= mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-    
-  ?>
-    <div class="row ">
-    <?php
-    while($row = mysqli_fetch_assoc($result)) {
-    ?>
-      <div class="col-md-4 ">
-        <div class="card " id="mycard" style="width:20rem;margin:20px 0px 20px 25px">
-       
-          <div class="card-body table-warning">  
-          
-         
-            <h4 class="card-title"><?php echo $row["company"]?></h4>
-            <h6 class="card-title text-right" >salary: <span class="badge bg-success " style="color:white; "><?php echo $row["salary"]?></span></h6>
-            <h6 class="card-title text-right" >Experice: <span class="badge bg-warning " style="color:white"><?php echo $row["experience"]?></span></h6>
-            <p class="card-text"><b> description: </b><br><?php echo substr($row["des"],0,50)."...."?></p>
-            <a href="jobview.html" class="btn btn-danger">View details</a>
-        </div>
-    
-    
-        </div>
-      </div>
-      <?Php
-  }
-  ?>
-    </div>
-    <?Php
-  }
-  ?>
-     
+
+  <!-- view// -->
+  <h1 class="text-center display-5 my-5">Graphic Design Internship in Mumbai</h1>
+  <div class="container table-warning">
+
+    <h1 class="name"><span class="badge bg-danger " style="color:white; ">Lorem ipsum dolor sit amet consectetur</span></h1>
+    <h3 class="salary my-4">Salary: 8000</h3>
+    <h3 class="exp">Experiance: 5</h3>
+    <p class="des my-4"><h3>Job Details:</h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi et odio facere
+      repellendus corporis earum? Quae culpa voluptatibus minima aliquid. Labore ex iure cupiditate
+      modi doloribus, voluptas animi harum ipsum? Aperiam ullam earum esse itaque voluptates
+      vero repellat voluptatum amet magnam reiciendis. Id sed nobis maxime minus debitis ad dicta culpa
+      nulla nesciunt? Perspiciatis aliquid eveniet, quisquam hic aliquam nam qui quaerat cupiditate?
+      Reprehenderit quam cupiditate saepe modi tenetur beatae accusantium explicabo pariatur, a
+      assumenda at tempore aut possimus sapiente nostrum voluptas totam perspiciatis voluptatem
+      sit magnam fuga fugiat. Quae facere asperiores laudantium accusantium tempora corrupti autem 
+      nostrum ipsa iusto!</p>
+    <button style="margin-left: 23rem;" class="btn btn-success my-2">Apply now</button>
   </div>
 
-  <!--card-->
-  <footer class="py-5 bg-secondary">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
-    </div>
-  </footer>
+
+  <!-- view// -->
 </body>
 
 </html>

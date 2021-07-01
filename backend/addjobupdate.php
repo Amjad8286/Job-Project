@@ -37,20 +37,20 @@
  <div class="form-group">
       <label for="comapny name">company name</label>
       <input type="hidden" class="form-control" id="id" value="<?php echo $row['id']?>" name="id">
-      <input type="text" class="form-control" id="company_name" value="<?php echo $row['company']?>" name="company">
+      <input type="text" class="form-control" id="company_name" value="<?php echo $row['company']?>" name="company" required>
     </div>
 
     <div class="form-group">
         <label for="salary">salary:</label>
-        <input type="text" class="form-control" id="salary" value="<?php echo $row['salary']?>"  name="salary">
+        <input type="text" class="form-control" id="salary" value="<?php echo $row['salary']?>"  name="salary" required>
       </div>
       <div class="form-group">
         <label for="description">description:</label>
-        <input type="text" class="form-control" id="description" value="<?php echo $row['des']?>" name="description">
+        <input type="text" class="form-control" id="description" value="<?php echo $row['des']?>" name="description" required>
       </div>
       <div class="form-group">
         <label for="experience">experience:</label>
-        <input type="text" class="form-control" id="experience" value="<?php echo $row['experience']?>" name="experience">
+        <input type="text" class="form-control" id="experience" value="<?php echo $row['experience']?>" name="experience" required>
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
