@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>rehman's project</title>
+  <title>Find Job here</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -13,43 +13,31 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     crossorigin="anonymous"></script>
-  <style>
-    .container {
-      border: 0.5px solid;
-      border-radius: 20px;
-
-      position: center;
-      border: 1px solid #9ca99f;
-      border-radius: 6px;
-      padding: 24px 24px 0;
-      max-width: 920px;
-      margin-top: 3rem;
-      
-    }
-    
-  </style>
+    <!-- <link rel="stylesheet" href="stylesheet.css"> -->
+  
 </head>
 
-<body style="background-color: #c3e6cb;">
+<body style="background-color:#c3e6cb">
 
-  <nav class="navbar navbar-expand-lg navbar-light table-warning" id="mynavbar">
+
+  <nav class="navbar navbar-expand-lg navbar-light table-warning" id="mynavbar" style="position: -webkit-sticky;  top: 0;">
     <div class="collapse navbar-collapse" id="navb">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">About Us</a>
+          <a class="nav-link" href="about.php">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="contact_us.html">Contact Us</a>
+          <a class="nav-link " href="contact_us.php">Contact Us</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">
         <button class="btn btn-info my-2 my-sm-0" type="button">Search</button>
       </form>
-    </div>
+   
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-secondary mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal"
       data-bs-whatever="@fat">Sign Up</button>
@@ -65,20 +53,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/sing_up" method="post">
+            <form action="register.php" method="post">
               <div>
                 <label for="recipient-name" class="col-form-label">User Name</label>
                 <input type="name" class="form-control" id="name" name="name" placeholder="Enter Your User Name"
                   required>
               </div>
-              <div>
-                <label for="message-text" class="col-form-label">First Name</label>
-                <input class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" required>
-              </div>
-              <div>
-                <label for="message-text" class="col-form-label">Last Name</label>
-                <input class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" required>
-              </div>
+             
               <div>
                 <label for="message-text" class="col-form-label">Email Address</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="example@example.com"
@@ -89,11 +70,7 @@
                 <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Enter Your Password"
                   required>
               </div>
-              <div>
-                <label for="message-text" class="col-form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Re Enter Your Password"
-                  required>
-              </div>
+             
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -103,6 +80,8 @@
         </div>
       </div>
     </div>
+
+    <!-- login -->
     <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -111,51 +90,49 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="/handlelogin" method="post">
+            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
               <div>
                 <label for="recipient-name" class="col-form-label">Username/Email:</label>
-                <input type="text" class="form-control" id="username1" name="username1"
+                <input type="text" class="form-control" id="username1" name="name"
                   placeholder="Enter Your Username Or Email Address">
               </div>
               <div>
                 <label for="message-text" class="col-form-label">Password:</label>
-                <input type="password" class="form-control" id="password1" name="password1"
+                <input type="password" class="form-control" id="pass1" name="password1"
                   placeholder="Enter Your Password">
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">loging</button>
               </div>
             </form>
+
+<?php if(isset($_POST['loging'])){
+
+$conn = mysqli_connect("localhost", "root", "", "givejob");
+
+$name=$_POST['name'];
+$password=$_POST['pass1'];
+
+$sql="SELECT name FROM register WHERE name='{$name}' AND password='{$password}'";
+$result= mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+session_start();
+$_SESSION['name']=$row['name'];
+header ("Location: https://localhost/abdul/index.php" );
+
+  }
+
+}else{ echo "note same";}
+
+} 
+?>
+
+
           </div>
         </div>
       </div>
     </div>
   </nav>
-
-
-
-  <!-- view// -->
-  <h1 class="text-center display-5 my-5">Graphic Design Internship in Mumbai</h1>
-  <div class="container table-warning">
-
-    <h1 class="name"><span class="badge bg-danger " style="color:white; ">Lorem ipsum dolor sit amet consectetur</span></h1>
-    <h3 class="salary my-4">Salary: 8000</h3>
-    <h3 class="exp">Experiance: 5</h3>
-    <p class="des my-4"><h3>Job Details:</h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi et odio facere
-      repellendus corporis earum? Quae culpa voluptatibus minima aliquid. Labore ex iure cupiditate
-      modi doloribus, voluptas animi harum ipsum? Aperiam ullam earum esse itaque voluptates
-      vero repellat voluptatum amet magnam reiciendis. Id sed nobis maxime minus debitis ad dicta culpa
-      nulla nesciunt? Perspicia quisquam hic aliquam nam qui quaerat cupiditate?
-      Reprehenderit quam cupiditate saepe modi tenetur beatae accusantium explicabo pariatur, a
-      assumenda at tempore aut possimus sapiente nostrum voluptas totam perspiciatis voluptatem
-      sit magnam fuga fugiat. Quae facere asperiores laudantium accusantium tempora corrupti autem 
-      nostrum ipsa iusto!</p>
-    <button style="margin-left: 23rem;" class="btn btn-success my-2">Apply now</button>
-  </div>
-
-
-  <!-- view// -->
-</body>
-
-</html>
+ 
