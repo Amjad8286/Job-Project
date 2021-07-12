@@ -1,6 +1,5 @@
-
- <?php  include "common.php"  ?>
- <style>
+<?php  include "common.php"  ?>
+<style>
      .carousel-inner img {
         width: 100%;
         height: 100%;

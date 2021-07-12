@@ -23,6 +23,9 @@
             <li class="nav-item">
               <a class="nav-link" href="addjobtable.php">Addjob table</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.php">home</a>
+            </li>
            
           </ul>
          
@@ -37,7 +40,7 @@
     die("Connection failed: " . mysqli_connect_error());
   }
   
-  $sql = " SELECT id,company,salary,des,experience FROM addjob";
+  $sql = " SELECT id,company,salary,des,experience,image FROM addjob  ORDER BY id DESC";
   $result= mysqli_query($conn, $sql);
 
   
@@ -57,6 +60,7 @@
         <th>salary</th>
         <th>description</th>
         <th>experience</th>
+        <th>image</th>
         <th>action</th>
       </tr>
     </thead>
@@ -70,6 +74,7 @@
     <td><?php echo $row["salary"]?></td>
     <td><?php echo $row["des"]?></td>
     <td><?php echo $row["experience"]?></td>
+    <td><?php echo $row["image"]?></td>
     <td><a class="btn btn-danger sm" href="addjobdelete.php?id=<?php echo $row['id'] ;?>">delete</a>
     <a class="btn btn-primary sm" href="addjobupdate.php?id=<?php echo $row['id'] ;?>">uppdate</a></td>
   </tr>

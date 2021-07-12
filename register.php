@@ -22,7 +22,7 @@ $sql1 = "INSERT INTO register (name,email,password)
 VALUES ('$name', '$email', '$password')";
 
 if (mysqli_query($conn, $sql1)) {
-  header ("Location: https://localhost/abdul/index.php" );
+  header ("Location: https://localhost/abdul" );
 } 
 }
 

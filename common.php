@@ -13,36 +13,59 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="stylesheet.css"> -->
   
 </head>
+<style>
 
-<body style="background-color:#c3e6cb">
+.btn-rounded {
+    border-radius: 10em;
+    background-color: #ff3547 !important;
+    
+}
+.btn{
+  padding: .84rem 2.14rem;
+    font-size: .81rem;
+    margin: .375rem
+}
+</style>
+
+<body >
 
 
-  <nav class="navbar navbar-expand-lg navbar-light table-warning" id="mynavbar" style="position: -webkit-sticky;  top: 0;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mynavbar" style="position: -webkit-sticky;  top: 0;">
     <div class="collapse navbar-collapse" id="navb">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.php">Home</a>
+          <a class="nav-link active" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.php">About Us</a>
+          <a class="nav-link active" href="about.php">About Us</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " href="contact_us.php">Contact Us</a>
+          <a class="nav-link active" href="contact_us.php">Contact Us</a>
+          </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav ">
+        <li class="nav-item">
+          <a class="btn btn-success" href="backend/addjob1.php">Addjob</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-primary" href="loging.php">Loging</a>
+        </li>
+        <li class="nav-item">
+          <a  class="btn btn-danger " href="logout.php">Logout</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-info my-2 my-sm-0" type="button">Search</button>
-      </form>
-   
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-secondary mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal"
       data-bs-whatever="@fat">Sign Up</button>
-    <button type="button" class="btn btn-outline-secondary " data-bs-toggle="modal" data-bs-target="#loginmodal"
-      data-bs-whatever="@fat">Log In</button>
 
     <!-- Modal -->
     <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodal" aria-hidden="true">
@@ -53,7 +76,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="register.php" method="post">
+            <form action="register.php" method="POST">
               <div>
                 <label for="recipient-name" class="col-form-label">User Name</label>
                 <input type="name" class="form-control" id="name" name="name" placeholder="Enter Your User Name"
@@ -81,58 +104,5 @@
       </div>
     </div>
 
-    <!-- login -->
-    <div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodal" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginmodal">Log In</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="<?php $_SERVER['PHP_SELF']; ?>" method="post">
-              <div>
-                <label for="recipient-name" class="col-form-label">Username/Email:</label>
-                <input type="text" class="form-control" id="username1" name="name"
-                  placeholder="Enter Your Username Or Email Address">
-              </div>
-              <div>
-                <label for="message-text" class="col-form-label">Password:</label>
-                <input type="password" class="form-control" id="pass1" name="password1"
-                  placeholder="Enter Your Password">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">loging</button>
-              </div>
-            </form>
-
-<?php if(isset($_POST['loging'])){
-
-$conn = mysqli_connect("localhost", "root", "", "givejob");
-
-$name=$_POST['name'];
-$password=$_POST['pass1'];
-
-$sql="SELECT name FROM register WHERE name='{$name}' AND password='{$password}'";
-$result= mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-  while($row = mysqli_fetch_assoc($result)) {
-session_start();
-$_SESSION['name']=$row['name'];
-header ("Location: https://localhost/abdul/index.php" );
-
-  }
-
-}else{ echo "note same";}
-
-} 
-?>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
   </nav>
  

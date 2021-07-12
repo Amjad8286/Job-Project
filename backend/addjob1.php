@@ -22,6 +22,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="addjobtable.php">Addjob table</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="../index.php">home</a>
             </li>
            
           </ul>
@@ -33,7 +36,7 @@
 
 <div class="container">
  
-  <form action="addjob.php" method="post">
+  <form action="addjob.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="comapny name">company name</label>
       <input type="text" class="form-control" id="company_name" placeholder="company name" name="company" required>
@@ -49,6 +52,10 @@
       <div class="form-group">
         <label for="experience">experience:</label>
         <input type="text" class="form-control" id="experience" placeholder="experience" name="experience" required>
+      </div>
+      <div class="form-group">
+        <label for="image">image:</label>
+        <input type="file" class="form-control" id="image" placeholder="image" name="image" required>
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

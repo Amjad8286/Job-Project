@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-7">
                   <div class="img-box">
-                    <img src="img/3.jpg" width=550px height=350px alt="">
+                    <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" width=550px height=350px alt="">
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-md-7">
                   <div class="img-box">
-                    <img src="img/2.jpg" width=550px height=350px pxalt="">
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" width=550px height=350px pxalt="">
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-md-7">
                   <div class="img-box">
-                    <img src="img/1.jpg" width=550px height=350px alt="">
+                    <img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" width=550px height=350px alt="">
                   </div>
                 </div>
               </div>
