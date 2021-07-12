@@ -49,10 +49,8 @@ hr {
     <div class="col-md-4 mx-auto">
 
       <!-- Content -->
-      <h5 class="font-weight-bold text-white text-uppercase mt-3 mb-4">Footer Content</h5>
-      <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-        consectetur
-        adipisicing elit.</p>
+      <h5 class="font-weight-bold text-white text-uppercase mt-3 mb-4">Find Best Jobs</h5>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse labore per, adipisci doloremque suscipit cumque iste.</p>
 
     </div>
     <!-- Grid column -->
@@ -63,20 +61,11 @@ hr {
     <div class="col-md-2 mx-auto">
 
       <!-- Links -->
-      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Instagram</h5>
 
       <ul class="list-unstyled">
         <li>
-          <a href="#!">Link 1</a>
-        </li>
-        <li>
-          <a href="#!">Link 2</a>
-        </li>
-        <li>
-          <a href="#!">Link 3</a>
-        </li>
-        <li>
-          <a href="#">Link 4</a>
+          <a href="#!">abdullahansari982076</a>
         </li>
       </ul>
 
@@ -89,20 +78,11 @@ hr {
     <div class="col-md-2 mx-auto">
 
       <!-- Links -->
-      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Google</h5>
 
       <ul class="list-unstyled">
         <li>
-          <a href="#!">Link 1</a>
-        </li>
-        <li>
-          <a href="#!">Link 2</a>
-        </li>
-        <li>
-          <a href="#!">Link 3</a>
-        </li>
-        <li>
-          <a href="#!">Link 4</a>
+          <a href="#!">abdullahansari<br>982076@gmail.com</a>
         </li>
       </ul>
 
@@ -115,20 +95,11 @@ hr {
     <div class="col-md-2 mx-auto">
 
       <!-- Links -->
-      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+      <h5 class="font-weight-bold text-uppercase mt-3 mb-4">LinkedIn</h5>
 
       <ul class="list-unstyled">
         <li>
-          <a href="#!">Link 1</a>
-        </li>
-        <li>
-          <a href="#!">Link 2</a>
-        </li>
-        <li>
-          <a href="#!">Link 3</a>
-        </li>
-        <li>
-          <a href="#!">Link 4</a>
+          <a href="#!">https://www.linkedin.com<br>/in/abdullah-ansari-4410b5217</a>
         </li>
       </ul>
 
