@@ -1,3 +1,5 @@
+<?PHP  session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,12 +32,13 @@
     font-size: .81rem;
     margin: .375rem
 }
+
 </style>
 
 <body >
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mynavbar" style="position: -webkit-sticky;  top: 0;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mynavbar" style="position: -webkit-sticky;  top: 0;">
     <div class="collapse navbar-collapse" id="navb">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -48,25 +51,38 @@
           <a class="nav-link active" href="contact_us.php">Contact Us</a>
           </li>
       </ul>
+     
+      <ul class="navbar-nav ">
+      
+        
+        
+      </ul>
       <form class="form-inline my-2 my-lg-0" action="search.php" method="get">
         <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
-        <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+        <button  id="mybtn" class="btn btn-info" type="submit">Search</button>
       </form>
-      <ul class="navbar-nav ">
-        <li class="nav-item">
-          <a class="btn btn-success" href="backend/addjob1.php">Addjob</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-primary" href="loging.php">Loging</a>
-        </li>
-        <li class="nav-item">
-          <a  class="btn btn-danger " href="logout.php">Logout</a>
-        </li>
-      </ul>
+      
+      <?php if(!isset($_SESSION["name"])){ ?>
+             <a class="btn btn-primary" href="loging.php">Loging</a>
+        <?php }  ?>  
+      <?php if(!isset($_SESSION["name"])){ ?>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-secondary mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal"
       data-bs-whatever="@fat">Sign Up</button>
-
+      <?php }  ?>
+      <?php 
+      
+      if($_SESSION["name"]=="rehman"){
+      ?>
+        
+          <a class="btn btn-success" href="backend/addjob1.php">Addjob</a>
+        
+        <?php } ?>
+      <?php if(isset($_SESSION["name"])){ ?>
+        
+          <a  class="btn btn-danger " href="logout.php">Logout</a>
+        
+        <?php }  ?>
     <!-- Modal -->
     <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodal" aria-hidden="true">
       <div class="modal-dialog">

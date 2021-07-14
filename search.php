@@ -1,5 +1,6 @@
-<?php  include "common.php"  ?>
-<style>
+
+ <?php  include "common.php"  ?>
+ <style>
      .carousel-inner img {
         width: 100%;
         height: 100%;
@@ -66,51 +67,8 @@ display: block;
 
 
   </style>
-  <!--slider-->
-  <div class="container my-3">
-    <div id="demo" class="carousel slide" data-ride="carousel">
-      <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-      </ul>
-      <div style="height: 470px; "class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Los Angeles" >
-          <div style="" class="carousel-caption">
-            <h3>Los Angeles</h3>
-            <p>We had such a great time in LA!</p>
-            <h1>abdul rehman</h1>
-            <input type="text" id="fname" name="fname" value="John">
+ 
 
-          </div>
-
-        </div>
-        <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="Chicago" >
-          <div class="carousel-caption">
-            <h3>Chicago</h3>
-            <p>Thank you, Chicago!</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" alt="New York">
-          <div class="carousel-caption">
-            <h3>New York</h3>
-            <p>We love the Big Apple!</p>
-          </div>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-      <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-    </div>
-  </div>
-  <!--slider-->
-<hr>
 
 <h1 class="text-center"> <span class="badge bg-danger " style="color:white">Get Your Favorite Job From Here</span></h1> 
 
@@ -119,6 +77,14 @@ display: block;
  
   <div class="container-fluid " style="margin-right: 86px;">
   <?php
+
+if(isset($_GET['search'])){
+
+  $search_term=$_GET['search'];
+
+}
+
+
   // Create connection
     $conn = mysqli_connect("localhost", "root", "", "givejob");
     // Check connection
@@ -126,18 +92,7 @@ display: block;
       die("Connection failed: " . mysqli_connect_error());
     }
     
-    $limit=9;
-
-      if(isset($_GET['page'])){
-
-          $page= $_GET['page'];
- }else{
-
-  $page=1;
- }
-      $offset= ($page-1)*$limit;
-
-    $sql = " SELECT id,company,salary,des,experience,image FROM addjob ORDER BY id DESC LIMIT {$offset}, {$limit} ";
+    $sql = " SELECT id,company,salary,des,experience,image FROM addjob WHERE company LIKE  '%$search_term%' ORDER BY id DESC ";
     $result= mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
     
@@ -153,15 +108,15 @@ display: block;
           
           <img class="card-img-top my-2" src="backend/upload/<?php echo $row["image"]?>" alt="image" style="width:200px; height:150px ;display: block;
   margin-left: auto;
-  margin-right: auto;">
+  margin-right: auto; object-fit:cover;">
           <hr style="background-color:red; opacity:1">
-            <h4 class="card-title"><?php echo $row["company"]?></h4>
-            <h6 class="card-title text-right" >salary: <span class="badge bg-success " style="color:white; "><?php echo $row["salary"]?></span></h6>
-            <h6 class="card-title text-right" >Experice: <span class="badge bg-warning " style="color:white"><?php echo $row["experience"]?></span></h6>
+          <h4 class="card-title"><?php echo $row["company"]?></h4>
+          <img src="backend/upload/<?php echo $row["image"]?>" alt="image" style="width:35px; height:35px ; margin-top: -33px; float:right">
+            <h6 class="card-title my-3" >salary: <span class="badge bg-success " style="color:white; "><?php echo $row["salary"]?></span></h6>
+            <h6 class="card-title my-3" >Experice: <span class="badge bg-warning " style="color:white"><?php echo $row["experience"]?></span></h6>
             <p class="card-text"><b> description: </b><br><?php echo substr($row["des"],0,50)."...."?></p>
             <a href="jobview.php?id=<?php echo $row['id'] ;?>" class="btn btn-danger">View details</a>
         </div>
-    
     
         </div>
       </div>
@@ -177,32 +132,6 @@ display: block;
     
   
   
-  
-  // pagination
-  $sql1= "SELECT * FROM addjob ";
-  $result1=  mysqli_query($conn, $sql1) or die("query failed");
-  if (mysqli_num_rows($result1) > 0) {
-  $total_records= mysqli_num_rows($result1);
- 
-  $total_pages= ceil( $total_records/$limit);
-  
-  
-  echo' <ul class="ul">';
-  for($i=1; $i <=$total_pages; $i++){
-   
-   if($i==$page){
-$active = "active";
-   }else{
-    $active= "";
-    
-   }
-   
-    echo '<li class="li '.$active.'" ><a href="index.php?page='.$i.'" >'.$i.'</a></li> ';
-  }
-  
-  echo'</ul>';
-  }
-  
   }
 
   ?>
@@ -211,3 +140,4 @@ $active = "active";
 
   <!--card-->
   <?php  include "footer.php"  ?>
+ 
