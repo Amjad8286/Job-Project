@@ -91,6 +91,17 @@ if(isset($_GET['search'])){
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
+
+    $limit=9;
+
+      if(isset($_GET['page'])){
+
+          $page= $_GET['page'];
+ }else{
+
+  $page=1;
+ }
+      $offset= ($page-1)*$limit;
     
     $sql = " SELECT id,company,salary,des,experience,image FROM addjob WHERE company LIKE  '%$search_term%' ORDER BY id DESC ";
     $result= mysqli_query($conn, $sql);
