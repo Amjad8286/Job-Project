@@ -65,19 +65,18 @@
       <?php if(!isset($_SESSION["name"])){ ?>
              <a class="btn btn-primary" href="loging.php">Loging</a>
         <?php }  ?>  
-      <?php if(!isset($_SESSION["name"])){ ?>
+      <?php if(!isset($_SESSION['name'])){ ?>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-secondary mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal"
       data-bs-whatever="@fat">Sign Up</button>
       <?php }  ?>
+     
       <?php 
-      
       if($_SESSION["name"]=="rehman"){
-      ?>
-        
+      ?>     
           <a class="btn btn-success" href="backend/addjob1.php">Addjob</a>
-        
-        <?php } ?>
+    <?php } ?>
+
       <?php if(isset($_SESSION["name"])){ ?>
         
           <a  class="btn btn-danger " href="logout.php">Logout</a>

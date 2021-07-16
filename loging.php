@@ -79,7 +79,7 @@
     $result = mysqli_query($conn, $sql) or die("quiry failed");
     if (mysqli_num_rows($result) > 0) {
       while ($row = mysqli_fetch_assoc($result)) {
-        session_start();
+        session_start();    
         $_SESSION["name"] = $row["name"];
         header("Location: https://localhost/abdul/index.php");
       }

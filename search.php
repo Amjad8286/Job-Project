@@ -68,46 +68,42 @@ display: block;
 
   </style>
  
+ <?php
+ $conn = mysqli_connect("localhost", "root", "", "givejob");
+if(isset($_GET['search'])){
+
+  $search_term= mysqli_real_escape_string($conn, $_GET['search']);
+ 
+}
+?>
 
 
-<h1 class="text-center"> <span class="badge bg-danger " style="color:white">Get Your Favorite Job From Here</span></h1> 
+<h1 class="text-center my-3"> <span class="badge bg-danger " style="color:white">your search : <?PHP echo $search_term ;?></span></h1> 
 
 
   <!--card-->
+  
  
   <div class="container-fluid " style="margin-right: 86px;">
   <?php
 
-if(isset($_GET['search'])){
-
-  $search_term=$_GET['search'];
-
-}
 
 
-  // Create connection
-    $conn = mysqli_connect("localhost", "root", "", "givejob");
+ 
+   
     // Check connection
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
 
-    $limit=9;
-
-      if(isset($_GET['page'])){
-
-          $page= $_GET['page'];
- }else{
-
-  $page=1;
- }
-      $offset= ($page-1)*$limit;
-    
-    $sql = " SELECT id,company,salary,des,experience,image FROM addjob WHERE company LIKE  '%$search_term%' ORDER BY id DESC ";
+   
+    $sql = " SELECT id,company,salary,des,experience,image FROM addjob WHERE company LIKE  '%$search_term%' OR  des LIKE  '%$search_term%'  ORDER BY id DESC ";
     $result= mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
     
   ?>
+
+
     <div class="row ">
     <?php
     while($row = mysqli_fetch_assoc($result)) {
@@ -143,8 +139,11 @@ if(isset($_GET['search'])){
     
   
   
-  }
+  }else{
 
+    echo  "<h1>Refine you query</h1>" ;
+     }
+   
   ?>
   
   </div>

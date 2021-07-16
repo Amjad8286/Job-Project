@@ -28,7 +28,7 @@
       die("Connection failed: " . mysqli_connect_error());
     }
     
-    $sql = " SELECT id,company,salary,des,experience FROM addjob WHERE id={$viewjob}";
+    $sql = " SELECT id,company,salary,des,experience,image FROM addjob WHERE id={$viewjob}";
     $result= mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
   
@@ -36,11 +36,14 @@
   
   ?>
   <h1 class="text-center display-5 my-5">Job in <?php echo $row['company']?></h1>
+  
   <div class="container table-warning">
-
+  <img src="backend/upload/<?php echo $row["image"]?>" alt="image" style="width:200px; height:200px ; float:right">
     <h1 class="name"><span class="badge bg-danger " style="color:white; ">
         <?php echo $row['company']?>
+        
       </span></h1>
+      
     <h3 class="salary my-4">Salary:
       <?php echo $row['salary']?>
     </h3>
