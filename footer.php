@@ -120,7 +120,8 @@ hr {
     <h5 class="mb-1">Register for free</h5>
   </li>
   <li class="list-inline-item">
-    <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+  <button type="button" class="btn btn-danger mx-2" data-bs-toggle="modal" data-bs-target="#signupmodal"
+      data-bs-whatever="@fat">Sign Up</button>
   </li>
 </ul>
 <!-- Call to action -->

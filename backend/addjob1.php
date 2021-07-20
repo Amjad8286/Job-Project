@@ -1,3 +1,16 @@
+
+<?php 
+
+session_start();
+
+if(!isset($_SESSION['name'])){
+  header ("Location: https://localhost/abdul/loging.php" );
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

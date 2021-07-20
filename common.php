@@ -71,18 +71,16 @@
       data-bs-whatever="@fat">Sign Up</button>
       <?php }  ?>
      
-      <?php 
-      if($_SESSION["name"]=="rehman"){
-      ?>     
+           
           <a class="btn btn-success" href="backend/addjob1.php">Addjob</a>
-    <?php } ?>
+    
 
       <?php if(isset($_SESSION["name"])){ ?>
         
           <a  class="btn btn-danger " href="logout.php">Logout</a>
         
         <?php }  ?>
-    <!-- Modal -->
+    <!-- Modal form -->
     <div class="modal fade" id="signupmodal" tabindex="-1" aria-labelledby="signupmodal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -118,6 +116,6 @@
         </div>
       </div>
     </div>
-
+<!-- /Modal form -->
   </nav>
  

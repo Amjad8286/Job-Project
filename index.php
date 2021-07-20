@@ -62,7 +62,6 @@ display: block;
 }
 
 
-
 /* /pagination */
 
 
@@ -157,7 +156,7 @@ display: block;
   margin-right: auto; object-fit:cover;">
           <hr style="background-color:red; opacity:1">
           <h4 class="card-title"><?php echo $row["company"]?></h4>
-          <img src="backend/upload/<?php echo $row["image"]?>" alt="image" style="width:35px; height:35px ; margin-top: -33px; float:right">
+          <img  src="backend/upload/<?php echo $row["image"]?>" alt="image" style="width:35px; height:35px ; margin-top: -33px; float:right">
             <h6 class="card-title my-3" >salary: <span class="badge bg-success " style="color:white; "><?php echo $row["salary"]?></span></h6>
             <h6 class="card-title my-3" >Experice: <span class="badge bg-warning " style="color:white"><?php echo $row["experience"]?></span></h6>
             <p class="card-text"><b> description: </b><br><?php echo substr($row["des"],0,50)."...."?></p>

@@ -72,7 +72,7 @@
     <td><?php echo $row["id"]?></td>
     <td><?php echo $row["company"]?></td>
     <td><?php echo $row["salary"]?></td>
-    <td><?php echo $row["des"]?></td>
+    <td><?php echo substr($row["des"],0,50)."...."?></td>
     <td><?php echo $row["experience"]?></td>
     <td><?php echo $row["image"]?></td>
     <td><a class="btn btn-danger sm" href="addjobdelete.php?id=<?php echo $row['id'] ;?>">delete</a>
